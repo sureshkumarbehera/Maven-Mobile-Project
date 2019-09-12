@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context" xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"> <!-- bean definitions here -->
+
+<!--  
+<bean id="airtel" class="com.sakha.MavenProjectMobile.Airtel">
+ <property name="smsCharge" value="2.5"></property>
+<property name="callCharge" value="1.5"></property>
+<property name="internetSpeed" value="4"></property> (this is for setter injection airtel) 
+
+<constructor-arg name="smsCharge" value="2.5"></constructor-arg>
+<constructor-arg name="callCharge" value="1.5"></constructor-arg>
+<constructor-arg name="internetSpeed" value="4"></constructor-arg>  (constructor injection for airtel )
+</bean>
+
+
+<bean id="idea" class="com.sakha.MavenProjectMobile.Idea">
+  <property name="smsCharge" value="3.5"></property>
+<property name="callCharge" value="2.5"></property>
+<property name="internetSpeed" value="3"></property>  (this is setter injection for idea)
+
+<constructor-arg name="smsCharge" value="3.5"></constructor-arg>
+<constructor-arg name="callCharge" value="2.5"></constructor-arg>
+<constructor-arg name="internetSpeed" value="5"></constructor-arg> (constructor injection for idea )
+</bean>
+
+
+
+<bean id="mobile" class="com.sakha.MavenProjectMobile.Mobile">
+  <property name="sim" ref="airtel"> </property>  (settet injection for airtel)
+<constructor-arg name="sim" ref="airtel"></constructor-arg> (this is for constructor injection  for airtel)
+
+</bean> 
+<bean id="mobile1" class="com.sakha.MavenProjectMobile.Mobile">
+ <property name="sim" ref="idea"> </property> (settet injection for idea)
+<constructor-arg name="sim" ref="idea"></constructor-arg> (this is for constructor injection  for idea)
+</bean>
+-->
+
+<!--  
+<bean id="airtel" class="com.sakha.MavenProjectMobile.Airtel">
+<constructor-arg name="mg" ref="msg"></constructor-arg>
+<constructor-arg name="smsCharge" value="3.5"></constructor-arg>
+<constructor-arg name="callCharge" value="2.5"></constructor-arg>
+<constructor-arg name="internetSpeed" value="5"></constructor-arg>
+  </bean>
+
+<bean id="msg" class="com.sakha.MavenProjectMobile.MessageGateway">
+     <property name="smsCharge" value="1"/>
+     <property name="mmsCharge" value="2"/>
+</bean>
+
+<bean id="mobile" class="com.sakha.MavenProjectMobile.Mobile">
+<constructor-arg name="sim" ref="airtel"> </constructor-arg>
+
+</bean> (link multiple class)-->
+  
+  <!--   <bean id="mobile" class="com.sakha.MavenProjectMobile.Mobile" scope="singleton" lazy-init="true"  autowire="constructor">
+  <property name="sim">
+  <bean class="com.sakha.MavenProjectMobile.Airtel" scope="singleton" lazy-init="true">
+     <property name="smsCharge" value="1.5"></property>
+     <property name="callCharge" value="1"></property>
+     <property name="internetSpeed" value="2"></property> 
+     
+   <property name="mg">
+  <bean class="com.sakha.MavenProjectMobile.MessageGateway" scope="singleton" lazy-init="true">
+    <property name="smsCharge" value="1"/>
+     <property name="mmsCharge" value="2"/>
+  </bean>
+  </property>
+  <property name="list">
+  	<list>
+  	<value>VolTE</value>
+  	<value>LTE</value>
+  	<value>3G</value>
+  	</list>
+  </property>
+  <property name="supportedNetwork">
+  <map>
+  <entry key="LTE" value="2016"></entry>
+  <entry key="VoLTE" value="2018"></entry>
+  <entry key="HSPA" value="2010"></entry>
+  </map>
+  </property>
+  </bean>
+  </property>
+  </bean>   -->
+  
+  <context:component-scan base-package="com.sakha.MavenProjectMobile"></context:component-scan>
+  <context:annotation-config></context:annotation-config>
+  <context:property-placeholder location="classpath:app.properties"/>
+  
+</beans>
